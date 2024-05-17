@@ -3,12 +3,10 @@ const Product = require("../models/productModel");
 // Controller to handle creating a new product
 const createProduct = async (req, res) => {
   try {
-    console.log(req.body)
     const product = new Product(req.body);
     await product.save();
     res.status(201).json(product);
   } catch (error) {
-    console.log(error)
     res.status(400).json({ message: error.message });
   }
 };
